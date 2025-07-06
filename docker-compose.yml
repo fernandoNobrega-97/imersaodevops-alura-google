@@ -1,0 +1,12 @@
+services:
+  app:
+    build: . # Constrói a imagem a partir do Dockerfile na pasta atual ('.')
+    container_name: minha-fastapi-app # Nome do container
+    ports:
+      - "8000:8000" # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
+
+    # Monta o diretório atual no diretório de trabalho do contêiner (/app)
+    # Isso permite que o hot-reload do uvicorn funcione, refletindo
+    # suas alterações de código em tempo real.
+    volumes:
+      - .:/app
